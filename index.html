@@ -93,7 +93,7 @@
 <body>
   <img src="dizzy.jpg" class="corner-img" alt="Logo">
   <div class="video-container">
-    <video id="rickVideo" src="Rick.mp4" autoplay muted playsinline controls loop>
+    <video id="rickVideo" src="Rick.mp4" autoplay playsinline controls loop>
       Your browser does not support the video tag.
     </video>
   </div>
@@ -108,7 +108,6 @@
     document.addEventListener('DOMContentLoaded', function () {
       var v = document.getElementById('rickVideo');
       if (v) {
-        v.muted = true;
         v.autoplay = true;
         v.playsInline = true;
         v.play().catch(()=>{}); // Try to force play on load (fails silently if browser blocks)
