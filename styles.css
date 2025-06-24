@@ -1,0 +1,16 @@
+.corner-img {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 220px;
+  height: auto;
+  z-index: 10;
+  border-radius: 50%;
+  object-fit:fill;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+body {
+  position: relative;
+  min-height: 100vh;
+  background: #c3c4c9;
+}
