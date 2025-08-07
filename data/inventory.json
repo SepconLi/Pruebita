@@ -7,7 +7,7 @@
       "category": "Anillos",
       "price": 2500,
       "currency": "CRC",
-      "inStock": false,
+      "inStock": true,
       "tags": ["new"],
       "image": "images/anillo.png",
       "createdAt": "2025-07-10"
