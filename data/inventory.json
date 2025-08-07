@@ -11,6 +11,18 @@
       "tags": ["new"],
       "image": "images/anillo.png",
       "createdAt": "2025-07-10"
+    },
+        {
+      "id": "CualquierCosa",
+      "name": "Nombre del producto",
+      "description": "Descripcion",
+      "category": "Categoria",
+      "price": 9999,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": ["nuevo, lo que usted quiera, separado por comas, etc"],
+      "image": "paseme la imagen",
+      "createdAt": "2025-07-10"
     }
   ],
   "meta": {
