@@ -1,42 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rick Roll</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catalog</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-
 <body>
-  <img src="dizzy.jpg" class="corner-img" alt="Logo">
-  <div style="height: 10vh;"></div>
-  <h1> ¡NUEVO DROP! 💣💣</h1>
-  <div class="video-container">
-    <video id="rickVideo" src="Rick.mp4" autoplay playsinline controls loop>
-      Your browser does not support the video tag.
-    </video>
-  </div>
-  <div style="height: 5vh;"></div>
-  <h2>Descubre más 👇🏻👇🏻👇🏻</h2>
-  <div style="height: 70vh;"></div>
-  <div class="message">
-    Es broma, pero si vamos a tener un nuevo drop pronto, mantente atento a nuestras redes! <br>
+  <header class="container">
+    <img src="dizzy.jpg" class="corner-img" alt="Logo">
+    <h1>Dizzy World</h1>
     <a href="https://www.instagram.com/dizzy.wrldd/" target="_blank" aria-label="Instagram">
       <i class="fab fa-instagram"></i>
     </a>
-  </div>
-  <script>
-    // For extra Safari compatibility, re-trigger autoplay if needed
-    document.addEventListener('DOMContentLoaded', function () {
-      var v = document.getElementById('rickVideo');
-      if (v) {
-        v.autoplay = true;
-        v.playsInline = true;
-        v.play().catch(()=>{}); // Try to force play on load (fails silently if browser blocks)
-      }
-    });
-  </script>
+  </header>
+
+  <main class="container">
+    <!-- Error banner -->
+    <div id="errorBanner" role="alert" aria-live="assertive" class="hidden banner banner-error"></div>
+
+    <!-- Controls -->
+    <section class="controls" aria-label="Filters and search">
+      <div class="control-row">
+        <label for="searchInput" class="visually-hidden">Search products</label>
+        <input id="searchInput" type="search" placeholder="Buscar por nombre o descripcion" autocomplete="off" inputmode="search" />
+      </div>
+
+      <div class="control-row control-grid">
+        <div>
+          <label for="categoryFilter">Categorias</label>
+          <select id="categoryFilter" multiple aria-label="Filtrar por categoria" size="4">
+            <!-- Options injected from data -->
+          </select>
+        </div>
+
+        <div>
+          <fieldset class="price-fieldset">
+            <legend>Price range</legend>
+            <div class="price-inputs">
+              <label for="priceMin" class="visually-hidden">Minimum price</label>
+              <input id="priceMin" type="number" inputmode="decimal" placeholder="Min" min="0" step="1000" />
+              <span aria-hidden="true" class="price-sep">–</span>
+              <label for="priceMax" class="visually-hidden">Maximum price</label>
+              <input id="priceMax" type="number" inputmode="decimal" placeholder="Max" min="0" step="1000" />
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="checkbox-row">
+          <input id="inStockOnly" type="checkbox" />
+          <label for="inStockOnly">In stock only</label>
+        </div>
+
+        <div>
+          <label for="sortSelect">Sort</label>
+          <select id="sortSelect">
+            <option value="price_asc">Price ↑</option>
+            <option value="price_desc">Price ↓</option>
+            <option value="name_asc">Name A–Z</option>
+            <option value="name_desc">Name Z–A</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+
+        <div class="reset-wrap">
+          <button id="resetBtn" type="button">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Count / status -->
+    <p id="count" class="count" aria-live="polite">Loading…</p>
+
+    <!-- Grid -->
+    <section id="grid" class="grid" aria-label="Product results"></section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-card" role="document">
+        <button class="modal-close" type="button" aria-label="Close" data-close>&times;</button>
+        <img id="modalImg" alt="" />
+        <div class="modal-body">
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc" class="muted"></p>
+          <dl class="details">
+            <div><dt>Category</dt><dd id="modalCat"></dd></div>
+            <div><dt>Price</dt><dd id="modalPrice"></dd></div>
+            <div><dt>Availability</dt><dd id="modalStock"></dd></div>
+            <div><dt>Tags</dt><dd id="modalTags"></dd></div>
+            <div><dt>Added</dt><dd id="modalCreated"></dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container footer">
+    <small>&copy; <span id="year"></span> Dizzy World. <span class="muted">Hecho por sepcon.</span></small>
+  </footer>
+
+  <script src="app.js" defer></script>
 </body>
 </html>

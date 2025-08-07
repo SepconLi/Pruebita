@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "id": "AnilloGota",
+      "name": "Anillo de gota ajustable",
+      "description": "Anillo con forma de gota que se puede ajustar",
+      "category": "Anillos",
+      "price": 2500,
+      "currency": "CRC",
+      "inStock": false,
+      "tags": ["new"],
+      "image": "images/anillo.png",
+      "createdAt": "2025-07-10"
+    }
+  ],
+  "meta": {
+    "lastUpdated": "2025-08-02"
+  }
+}
