@@ -7,7 +7,7 @@
   --primary: #0a7cff;
   --danger: #b00020;
   --ring: #5b9fff;
-  --badge: #111111;
+  --badge: #000000;
   --badge-bg: #e9ecef;
   color-scheme: light;
 }
@@ -24,7 +24,7 @@
     --ring: #90c2ff;
     --badge: #f3f4f6;
     --badge-bg: #1f2023;
-    --fondo: #d5d6d8;
+    --fondo: #ecece2;
     --cuadro: #420b75;
     color-scheme: dark;
   }
@@ -76,11 +76,12 @@ header.container {
 }
 
 header.container a[aria-label="Instagram"] {
-  margin-left: auto;              /* pushes it to the right */
+  margin-left: auto;              
+  margin-top: 12px;
   display: inline-flex;
   align-items: center;
-  font-size: 60px;                /* size of the icon */
-  color: #420b75;                 /* your purple */
+  font-size: 60px;                
+  color: #420b75;                 
   text-decoration: none;
 }
 

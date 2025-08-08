@@ -93,9 +93,9 @@ function showError(msg) {
 function applyFilters(allItems, state) {
     let items = [...allItems];
 
-    if (state.categories.length) {
-        const set = new Set(state.categories.map((c) => c.toLowerCase()));
-        items = items.filter((it) => set.has(it.category.toLowerCase()));
+    if (state.categories.length && state.categories[0] !== "") {
+        const selected = state.categories[0].toLowerCase();
+        items = items.filter(it => it.category.toLowerCase() === selected);
     }
 
     if (state.inStockOnly) items = items.filter((it) => it.inStock);
@@ -106,10 +106,16 @@ function applyFilters(allItems, state) {
 /* ====== Rendering ====== */
 function renderCategoriesSelect(items) {
     const sel = $("#categoryFilter");
-    const cats = Array.from(new Set(items.map((i) => i.category))).sort((a, b) =>
-        a.localeCompare(b)
-    );
+    if (!sel) return;
+
+    const cats = Array.from(new Set(items.map(i => i.category))).sort((a, b) => a.localeCompare(b));
+
     sel.innerHTML = "";
+    const allOpt = document.createElement("option");
+    allOpt.value = "";
+    allOpt.textContent = "Mostrar todo";
+    sel.appendChild(allOpt);
+
     for (const c of cats) {
         const opt = document.createElement("option");
         opt.value = c;
