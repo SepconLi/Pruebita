@@ -26,8 +26,8 @@
     },
     {
       "id": "sku-0003",
-      "name": "Pines de Star Wars",
-      "description": "",
+      "name": "Pines de Star Wars (1)",
+      "description": "2000 colones cada pin",
       "category": "Pin",
       "price": 2000.0,
       "currency": "CRC",
@@ -110,8 +110,8 @@
     },
     {
       "id": "sku-0010",
-      "name": "Pines de NANA",
-      "description": "",
+      "name": "Pines de NANA (1)",
+      "description": "2000 colones cada pin",
       "category": "Pin",
       "price": 2000.0,
       "currency": "CRC",
@@ -158,8 +158,8 @@
     },
     {
       "id": "sku-0014",
-      "name": "Pines de Spiderman",
-      "description": "",
+      "name": "Pines de Spiderman (1)",
+      "description": "2000 colones cada pin",
       "category": "Pin",
       "price": 2000.0,
       "currency": "CRC",
