@@ -1,31 +1,211 @@
 {
   "items": [
     {
-      "id": "AnilloGota",
-      "name": "Anillo de gota ajustable",
-      "description": "Anillo con forma de gota que se puede ajustar",
-      "category": "Anillos",
-      "price": 2500,
+      "id": "sku-0001",
+      "name": "Collares Vintage",
+      "description": "",
+      "category": "Collar",
+      "price": 5000.0,
       "currency": "CRC",
-      "inStock": true,
-      "tags": ["new"],
-      "image": "images/anillo.png",
-      "createdAt": "2025-07-10"
+      "inStock": false,
+      "tags": [],
+      "image": "images/collarVint.jpg",
+      "createdAt": "2025-08-08"
     },
     {
-      "id": "CualquierCosa",
-      "name": "Nombre del producto",
-      "description": "Descripcion",
-      "category": "Categoria",
-      "price": 9999,
+      "id": "sku-0002",
+      "name": "Collar de mariposa",
+      "description": "",
+      "category": "Collar",
+      "price": 5000.0,
+      "currency": "CRC",
+      "inStock": false,
+      "tags": [],
+      "image": "images/mariposa.jpg",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0003",
+      "name": "Pines de Star Wars",
+      "description": "",
+      "category": "Pin",
+      "price": 2000.0,
       "currency": "CRC",
       "inStock": true,
-      "tags": ["nuevo, lo que usted quiera, separado por comas, etc"],
+      "tags": [],
+      "image": "images/pinstarwar.jpg",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0004",
+      "name": "Anillo de araña",
+      "description": "",
+      "category": "Anillo",
+      "price": 1500.0,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": [],
+      "image": "images/anilloarana.jpg",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0005",
+      "name": "Anillo Sencillo",
+      "description": "",
+      "category": "Anillo",
+      "price": 1500.0,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": [],
+      "image": "images/anillosenc.jpg",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0006",
+      "name": "Collar de araña",
+      "description": "",
+      "category": "Collar",
+      "price": 5500.0,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": [],
+      "image": "images/collararana.jpg",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0007",
+      "name": "Llavero de relicario",
+      "description": "",
+      "category": "Llavero",
+      "price": 3500.0,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": [],
+      "image": "images/llaverorelic.jpg",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0008",
+      "name": "Pin The Office",
+      "description": "",
+      "category": "Pin",
+      "price": 2000.0,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": [],
+      "image": "images/pinoffice.jpg",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0009",
+      "name": "Llavero Rana",
+      "description": "",
+      "category": "Llavero",
+      "price": 2000.0,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": [],
+      "image": "images/rana.jpg",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0010",
+      "name": "Pines de NANA",
+      "description": "",
+      "category": "Pin",
+      "price": 2000.0,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": [],
+      "image": "images/pinnana.jpg",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0011",
+      "name": "Collar Capitán América",
+      "description": "",
+      "category": "Collar",
+      "price": 2500.0,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": [],
+      "image": "images/collaramerica.jpg",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0012",
+      "name": "Anillo gota",
+      "description": "",
+      "category": "Anillo",
+      "price": 1500.0,
+      "currency": "CRC",
+      "inStock": false,
+      "tags": [],
+      "image": "images/anillogota.png",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0013",
+      "name": "Llavero Bola 8",
+      "description": "",
+      "category": "Llavero",
+      "price": 4500.0,
+      "currency": "CRC",
+      "inStock": false,
+      "tags": [],
+      "image": "images/llavero8.jpg",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0014",
+      "name": "Pines de Spiderman",
+      "description": "",
+      "category": "Pin",
+      "price": 2000.0,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": [],
+      "image": "images/pinesSpidy.jpg",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0015",
+      "name": "Llavero de totoro",
+      "description": "",
+      "category": "Llavero",
+      "price": 4000.0,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": [],
       "image": "",
-      "createdAt": "2025-07-10"
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0016",
+      "name": "Anillo de mariposa",
+      "description": "",
+      "category": "Anillo",
+      "price": 2000.0,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": [],
+      "image": "",
+      "createdAt": "2025-08-08"
+    },
+    {
+      "id": "sku-0017",
+      "name": "Pulseras bola 8",
+      "description": "",
+      "category": "Pulsera",
+      "price": 2000.0,
+      "currency": "CRC",
+      "inStock": true,
+      "tags": [],
+      "image": "",
+      "createdAt": "2025-08-08"
     }
   ],
   "meta": {
-    "lastUpdated": "2025-08-02"
+    "lastUpdated": "2025-08-08"
   }
 }

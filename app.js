@@ -1,6 +1,5 @@
 /* ====== Utilities ====== */
 const $ = (sel) => document.querySelector(sel);
-const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
 function debounce(fn, wait = 300) {
   let t;
@@ -12,12 +11,8 @@ function debounce(fn, wait = 300) {
 
 /* ====== State / URL Sync ====== */
 const defaultState = {
-  q: "",
-  categories: [],      // array of strings
-  priceMin: "",
-  priceMax: "",
-  inStockOnly: false,
-  sort: "price_asc",
+  categories: [],
+  inStockOnly: false
 };
 
 function readStateFromURL() {
@@ -89,48 +84,16 @@ function showError(msg) {
   el.classList.remove("hidden");
 }
 
-/* ====== Filtering / Sorting ====== */
+/* ====== Filtering ====== */
 function applyFilters(allItems, state) {
   let items = [...allItems];
-
-  const q = state.q.trim().toLowerCase();
-  if (q) {
-    items = items.filter(
-      (it) =>
-        it.name.toLowerCase().includes(q) ||
-        it.description.toLowerCase().includes(q)
-    );
-  }
 
   if (state.categories.length) {
     const set = new Set(state.categories.map((c) => c.toLowerCase()));
     items = items.filter((it) => set.has(it.category.toLowerCase()));
   }
 
-  const min = parseFloat(state.priceMin);
-  const max = parseFloat(state.priceMax);
-  if (!isNaN(min)) items = items.filter((it) => it.price >= min);
-  if (!isNaN(max)) items = items.filter((it) => it.price <= max);
-
   if (state.inStockOnly) items = items.filter((it) => it.inStock);
-
-  switch (state.sort) {
-    case "price_asc":
-      items.sort((a, b) => a.price - b.price);
-      break;
-    case "price_desc":
-      items.sort((a, b) => b.price - a.price);
-      break;
-    case "name_asc":
-      items.sort((a, b) => a.name.localeCompare(b.name));
-      break;
-    case "name_desc":
-      items.sort((a, b) => b.name.localeCompare(a.name));
-      break;
-    case "newest":
-      items.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      break;
-  }
 
   return items;
 }
@@ -177,10 +140,8 @@ function renderGrid(items) {
     empty.innerHTML = `
       <div class="card-body">
         <p class="muted">No items match your filters. Try resetting or widening your search.</p>
-        <button type="button" id="emptyResetBtn">Reset filters</button>
       </div>`;
     grid.appendChild(empty);
-    $("#emptyResetBtn").addEventListener("click", resetControls);
     return;
   }
 
@@ -250,7 +211,6 @@ let STATE = { ...defaultState };
 
 function setControlsFromState() {
   $("#inStockOnly").checked = STATE.inStockOnly;
-  // categories
   const sel = $("#categoryFilter");
   for (const opt of sel.options) {
     opt.selected = STATE.categories.includes(opt.value);
@@ -262,7 +222,8 @@ function readStateFromControls() {
   const selected = Array.from(sel.selectedOptions).map((o) => o.value);
 
   STATE = {
-    inStockOnly: $("#inStockOnly").checked,
+    categories: selected,
+    inStockOnly: $("#inStockOnly").checked
   };
 }
 
@@ -272,14 +233,6 @@ const run = () => {
   const items = applyFilters(INVENTORY.items, STATE);
   renderGrid(items);
 };
-
-const runDebounced = debounce(run, 300);
-
-function resetControls() {
-  STATE = { ...defaultState };
-  setControlsFromState();
-  run();
-}
 
 function bindControls() {
   $("#categoryFilter").addEventListener("change", run);
@@ -291,7 +244,6 @@ function bindControls() {
   $("#year").textContent = new Date().getFullYear();
 
   await loadData();
-
   renderCategoriesSelect(INVENTORY.items);
 
   STATE = readStateFromURL();
@@ -300,13 +252,14 @@ function bindControls() {
   bindControls();
   setupModalEvents();
 
-  // First paint
-  const items = applyFilters(INVENTORY.items, STATE);
-  renderGrid(items);
+  renderGrid(applyFilters(INVENTORY.items, STATE));
 
-  // Defensive: make sure broken images fallback
-  document.addEventListener("error", (e) => {
-    const t = e.target;
-    if (t.tagName === "IMG") t.src = placeholderImg;
-  }, true);
+  document.addEventListener(
+    "error",
+    (e) => {
+      const t = e.target;
+      if (t.tagName === "IMG") t.src = placeholderImg;
+    },
+    true
+  );
 })();
