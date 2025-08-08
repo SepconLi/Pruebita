@@ -39,7 +39,7 @@ html, body {
   padding: 0;
   background: var(--fondo);
   color: var(--bg);
-  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font: 16px/1.5 "Libertinus Sans",sans-serif;
 }
 
 .container {
@@ -168,10 +168,10 @@ button:active { transform: translateY(1px); }
 }
 
 .card {
-  border: 1px solid var(--border);
+  border: 1px solid var(--cuadro);
   border-radius: .75rem;
   overflow: hidden;
-  background: var(--bg);
+  background: var(--fondo);
   display: grid;
   grid-template-rows: auto 1fr;
 }
@@ -227,8 +227,8 @@ button:active { transform: translateY(1px); }
   position: relative;
   margin: 4vh auto;
   width: min(960px, 96vw);
-  background: var(--bg);
-  color: var(--text);
+  background: var(--fondo);
+  color: var(--cuadro);
   border: 1px solid var(--border);
   border-radius: .75rem;
   overflow: hidden;
@@ -251,7 +251,7 @@ button:active { transform: translateY(1px); }
   width: 2.2rem; height: 2.2rem;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: var(--bg);
+  background: var(--fondo);
   font-size: 1.25rem;
 }
 .details { display: grid; grid-template-columns: max-content 1fr; gap: .35rem .75rem; }
@@ -269,4 +269,21 @@ button:active { transform: translateY(1px); }
   width: 1px; height: 1px;
   padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.libertinus-sans-regular {
+  font-family: "Libertinus Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libertinus-sans-bold {
+  font-family: "Libertinus Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libertinus-sans-regular-italic {
+  font-family: "Libertinus Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
 }

@@ -177,7 +177,7 @@
       "currency": "CRC",
       "inStock": true,
       "tags": [],
-      "image": "",
+      "image": "images/llaverototoro.jpg",
       "createdAt": "2025-08-08"
     },
     {
@@ -189,7 +189,7 @@
       "currency": "CRC",
       "inStock": true,
       "tags": [],
-      "image": "",
+      "image": "images/anillomariposa.jpg",
       "createdAt": "2025-08-08"
     },
     {
@@ -201,7 +201,7 @@
       "currency": "CRC",
       "inStock": true,
       "tags": [],
-      "image": "",
+      "image": "images/pulsera8.jpg",
       "createdAt": "2025-08-08"
     }
   ],
