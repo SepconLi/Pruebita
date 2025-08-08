@@ -24,24 +24,16 @@ function readStateFromURL() {
   const p = new URLSearchParams(location.search);
   const state = { ...defaultState };
 
-  if (p.has("q")) state.q = p.get("q");
   if (p.has("cat")) state.categories = p.get("cat").split(",").filter(Boolean);
-  if (p.has("min")) state.priceMin = p.get("min");
-  if (p.has("max")) state.priceMax = p.get("max");
   if (p.has("stock")) state.inStockOnly = p.get("stock") === "1";
-  if (p.has("sort")) state.sort = p.get("sort");
 
   return state;
 }
 
 function syncStateWithURL(state) {
   const p = new URLSearchParams();
-  if (state.q) p.set("q", state.q);
   if (state.categories.length) p.set("cat", state.categories.join(","));
-  if (state.priceMin !== "" && !isNaN(state.priceMin)) p.set("min", state.priceMin);
-  if (state.priceMax !== "" && !isNaN(state.priceMax)) p.set("max", state.priceMax);
   if (state.inStockOnly) p.set("stock", "1");
-  if (state.sort && state.sort !== defaultState.sort) p.set("sort", state.sort);
 
   const newURL = `${location.pathname}${p.toString() ? "?" + p.toString() : ""}`;
   history.replaceState(null, "", newURL);
@@ -257,12 +249,7 @@ function setupModalEvents() {
 let STATE = { ...defaultState };
 
 function setControlsFromState() {
-  $("#searchInput").value = STATE.q;
-  $("#priceMin").value = STATE.priceMin;
-  $("#priceMax").value = STATE.priceMax;
   $("#inStockOnly").checked = STATE.inStockOnly;
-  $("#sortSelect").value = STATE.sort;
-
   // categories
   const sel = $("#categoryFilter");
   for (const opt of sel.options) {
@@ -275,12 +262,7 @@ function readStateFromControls() {
   const selected = Array.from(sel.selectedOptions).map((o) => o.value);
 
   STATE = {
-    q: $("#searchInput").value,
-    categories: selected,
-    priceMin: $("#priceMin").value,
-    priceMax: $("#priceMax").value,
     inStockOnly: $("#inStockOnly").checked,
-    sort: $("#sortSelect").value,
   };
 }
 
@@ -300,13 +282,8 @@ function resetControls() {
 }
 
 function bindControls() {
-  $("#searchInput").addEventListener("input", runDebounced);
   $("#categoryFilter").addEventListener("change", run);
-  $("#priceMin").addEventListener("input", runDebounced);
-  $("#priceMax").addEventListener("input", runDebounced);
   $("#inStockOnly").addEventListener("change", run);
-  $("#sortSelect").addEventListener("change", run);
-  $("#resetBtn").addEventListener("click", resetControls);
 }
 
 /* ====== Bootstrap ====== */

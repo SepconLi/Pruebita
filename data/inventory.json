@@ -12,7 +12,7 @@
       "image": "images/anillo.png",
       "createdAt": "2025-07-10"
     },
-        {
+    {
       "id": "CualquierCosa",
       "name": "Nombre del producto",
       "description": "Descripcion",
@@ -21,7 +21,7 @@
       "currency": "CRC",
       "inStock": true,
       "tags": ["nuevo, lo que usted quiera, separado por comas, etc"],
-      "image": "paseme la imagen",
+      "image": "",
       "createdAt": "2025-07-10"
     }
   ],

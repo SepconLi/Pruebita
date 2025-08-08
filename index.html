@@ -24,48 +24,18 @@
     <section class="controls" aria-label="Filters and search">
       <div class="control-row">
         <label for="searchInput" class="visually-hidden">Search products</label>
-        <input id="searchInput" type="search" placeholder="Buscar por nombre o descripcion" autocomplete="off" inputmode="search" />
       </div>
 
       <div class="control-row control-grid">
         <div>
           <label for="categoryFilter">Categorias</label>
-          <select id="categoryFilter" multiple aria-label="Filtrar por categoria" size="4">
-            <!-- Options injected from data -->
+          <select id="categoryFilter" aria-label="Filtrar por categoria" size="4">
           </select>
-        </div>
-
-        <div>
-          <fieldset class="price-fieldset">
-            <legend>Price range</legend>
-            <div class="price-inputs">
-              <label for="priceMin" class="visually-hidden">Minimum price</label>
-              <input id="priceMin" type="number" inputmode="decimal" placeholder="Min" min="0" step="1000" />
-              <span aria-hidden="true" class="price-sep">–</span>
-              <label for="priceMax" class="visually-hidden">Maximum price</label>
-              <input id="priceMax" type="number" inputmode="decimal" placeholder="Max" min="0" step="1000" />
-            </div>
-          </fieldset>
         </div>
 
         <div class="checkbox-row">
           <input id="inStockOnly" type="checkbox" />
-          <label for="inStockOnly">In stock only</label>
-        </div>
-
-        <div>
-          <label for="sortSelect">Sort</label>
-          <select id="sortSelect">
-            <option value="price_asc">Price ↑</option>
-            <option value="price_desc">Price ↓</option>
-            <option value="name_asc">Name A–Z</option>
-            <option value="name_desc">Name Z–A</option>
-            <option value="newest">Newest</option>
-          </select>
-        </div>
-
-        <div class="reset-wrap">
-          <button id="resetBtn" type="button">Reset</button>
+          <label for="inStockOnly">Solo Disponible</label>
         </div>
       </div>
     </section>
